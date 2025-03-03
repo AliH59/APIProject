@@ -13,7 +13,15 @@ This project is a machine learning application that predicts the price of cars b
   - Doors
   - Airbags
 
- ## Running the API
+## Steps:
+
+### 1. Clone the Repository
+
+### 2. Set up the environment
+
+### 3. Install the required dependencies
+
+### 4. Running the API
 
 After setting up the environment, run the FastAPI application.
 
