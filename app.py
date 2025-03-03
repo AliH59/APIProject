@@ -21,6 +21,11 @@ with open("best_model.pkl", "rb") as file:
 # Create an instance of the FastAPI app
 app = FastAPI()
 
+# Define the root endpoint to verify the service
+@app.get("/")
+def read_root():
+    return {"message": "Car price prediction API is running"}
+
 # Define the input structure using Pydantic (with the reduced set of features)
 class CarFeatures(BaseModel):
     Levy: float
@@ -50,3 +55,8 @@ def predict_price(car_features: CarFeatures):
 
     # Return the predicted price
     return {"predicted_price": predicted_price[0]}
+
+# To allow Render to bind to the correct port, add this
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
