@@ -15,13 +15,37 @@ This project is a machine learning application that predicts the price of cars b
 
  ## Running the API
 
-After setting up the environment, run the FastAPI application:
+After setting up the environment, run the FastAPI application.
 
-```bash
-uvicorn app:app --reload
+### Example Request:
 
+You can use tools like Postman or cURL to make a POST request to the following endpoint:
 
+-   **POST** `http://127.0.0.1:8000/predict/`
 
+#### Example body for the request:
 
+json
+
+Copy
+
+`{
+  "Levy": 3000,
+  "Prod. year": 2015,
+  "Engine volume": 2.5,
+  "Mileage": 75000,
+  "Cylinders": 4,
+  "Doors": 4,
+  "Airbags": 6
+} `
+
+The response will give you the predicted price for the car based on the input features.
+
+Model Download Instructions
+---------------------------
+
+The trained model (`best_model.pkl`) used for car price prediction is stored on Google Drive at the below link:
+
+Link: https://drive.google.com/file/d/1OwRWb5OQAnHAcH_A16ZEkpZpnSTviYN0/view?usp=sharing
 
 
