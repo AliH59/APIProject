@@ -2,6 +2,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pickle
 import numpy as np
+import os
+import gdown
+
+# Get the Google Drive file ID from the environment variable
+file_id = os.getenv('GOOGLE_DRIVE_FILE_ID')
+
+# Construct the Google Drive download link
+download_link = f"https://drive.google.com/uc?id={file_id}"
+
+# Download the model file from Google Drive
+gdown.download(download_link, 'best_model.pkl', quiet=False)
 
 # Load the trained model
 with open("best_model.pkl", "rb") as file:
